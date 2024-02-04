@@ -14,19 +14,13 @@ public class RestAPIWrapper {
 
     private  static final Log log= LogFactory.getLog(RestAPIWrapper.class);
 
-
-
     public static Response getResponseForListUsers()
     {
         Map<String,Integer> map=new HashMap<>();
         map.put("page",2);
 
         Response res=RestClient.getMethod(map);
-
         return res;
-
-
-
     }
 
     public static Response getResponseForCreateUsers() throws JsonProcessingException {
@@ -37,15 +31,8 @@ public class RestAPIWrapper {
 
         ObjectMapper mapper= new ObjectMapper() ;
         String s=mapper.writerWithDefaultPrettyPrinter().writeValueAsString(user);
-
-        log.info("body is ==="+s);
-
         Response res=RestClient.postMethod(s);
-
         return res;
-
-
-
     }
 
     public static Response getResponseForUpdateUsers() throws JsonProcessingException {
@@ -56,19 +43,9 @@ public class RestAPIWrapper {
 
         ObjectMapper mapper= new ObjectMapper() ;
         String s=mapper.writerWithDefaultPrettyPrinter().writeValueAsString(user);
-
-        log.info("body is ==="+s);
-
         Response res=RestClient.putMethod(s);
 
         return res;
-
-
-
     }
-
-
-
-
 
 }

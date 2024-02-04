@@ -12,7 +12,26 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <suiteFile>src/test/resources/testng.xml</suiteFile>
     </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.2.5</version>
+                    <configuration>
+                        <suitXMLFiles>
+                            <suiteXMLFile>${suiteFile}</suiteXMLFile>
+                        </suitXMLFiles>
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+    </build>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->

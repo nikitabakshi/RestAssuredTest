@@ -14,11 +14,7 @@ public class RestAssuredRequestFilter implements Filter {
     @Override
     public Response filter(FilterableRequestSpecification requestSpec, FilterableResponseSpecification responseSpec, FilterContext ctx) {
         Response res=ctx.next(requestSpec,responseSpec);
-        if(res.statusCode()!=200 || res.statusCode()!=201)
-        {
-         log.error(requestSpec.getMethod() +" "+requestSpec.getURI()+" "+res.getStatusCode()+" "+res.getStatusLine());
-        }
-        log.info(requestSpec.getMethod() +" "+requestSpec.getURI() +"\n Request Body =>" + requestSpec.getBody()
+        log.info(requestSpec.getMethod() +" "+requestSpec.getURI() +"\n Request Body =>" + requestSpec.getBody() +"\n"
                 + res.getStatusCode()+" "+res.getStatusLine() + "\n Response Body =>" + res.getBody().prettyPrint());
         return res;
     }

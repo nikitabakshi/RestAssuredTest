@@ -1,5 +1,6 @@
 package com.test.testClasses;
 
+import com.java.utils.FrameworkConstants;
 import com.java.utils.ReadProperties;
 import com.java.wrapper.RestAPIWrapper;
 import com.java.wrapper.RestClient;
@@ -23,7 +24,7 @@ public class RestClientTest {
 
     @Test(priority = 0)
     public void getusers() throws Exception {
-        RestClient.setBasePath(readProperties.getValue("basePathUsers"));
+        RestClient.setBasePath(FrameworkConstants.BASEPATHUSERS);
         Response res=RestAPIWrapper.getResponseForListUsers();
         Assert.assertEquals(res.getStatusCode(),200);
 
@@ -31,7 +32,7 @@ public class RestClientTest {
 
     @Test(priority = 1)
     public void createUsers() throws Exception {
-        RestClient.setBasePath(readProperties.getValue("basePathUsers"));
+        RestClient.setBasePath(FrameworkConstants.BASEPATHUSERS);
         Response res=RestAPIWrapper.getResponseForCreateUsers();
         Assert.assertEquals(res.getStatusCode(),201);
 
@@ -39,7 +40,7 @@ public class RestClientTest {
 
     @Test(priority = 2)
     public void updateUsers() throws Exception {
-        RestClient.setBasePath(readProperties.getValue("basePathUpdateUsers"));
+        RestClient.setBasePath(FrameworkConstants.BASEPATHUPDATEUSERS);
         Response res=RestAPIWrapper.getResponseForUpdateUsers();
         Assert.assertEquals(res.getStatusCode(),200);
     }
